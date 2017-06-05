@@ -5,4 +5,34 @@
 ;;  - "new"
 ;;  - "old"
 ;;  - "heritage"
-;; interp. 
+;; interp. the age of a building in downtown Vancouver
+
+;; <examples are redundant for enumerations>
+
+#;
+(define (fn-for-building-status bs)
+  (cond [(string=? "new" bs) (...)]
+        [(string=? "old" bs) (...)]
+        [(string=? "heritage" bs) (...)]))
+;; Template rules used:
+;;  - one of: 3 cases
+;;  - atomic distinct: "new"
+;;  - atomic distinct: "old"
+;;  - atomic distinct: "heritage"
+
+;; ==================
+;; Functions:
+
+;; BuildingStatus -> Boolean
+;; produces 'true' if the BuildingStatus is "old" and should be demolished
+
+(check-expect (demolish? "new") false)
+(check-expect (demolish? "old") true)
+(check-expect (demolish? "heritage") false)
+
+;(define (demolish? bs) false)  ; stub
+
+; <template from BuildingStatus>
+
+(define (demolish? bs)
+  (string=? bs "old"))
