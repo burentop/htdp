@@ -46,8 +46,10 @@
 (check-expect (hyper 42 10 20 "button-down") 10)
 (check-expect (hyper 42 10 20 "move") 42)
 
-(define (hyper x-coordinate x-mouse y-mouse me)
-  x-coordinate)
+(define (hyper x-position-of-car x-mouse y-mouse me)
+  (cond
+    [(string=? "button-down" me) x-mouse]
+    [else x-position-of-car]))
 
 ; WorldState -> Image
 ; places the car into the BACKGROUND scene,
